@@ -51,40 +51,35 @@ The detective must determine:
 - GitHub
 - VS Code
 
-## 🚧 Project Status
+## ✨ What Works Now
 
-Currently under active development.
+- A React investigation board with evidence, interviews, a timeline, and an accusation form
+- A MongoDB-backed case model and repeatable seed for Case 001
+- API endpoints for health checks, case retrieval, and deduction scoring
+- A solution-safe public case endpoint: the answer is only returned after a correct accusation
 
-### Completed
-- Initial backend setup
-- Express server
-- TypeScript configuration
-- MongoDB/Mongoose dependency setup
-- Git repository
-- GitHub repository
+## 🚀 Run the Game
 
-### In Progress
-- MongoDB connection
-- Database models
-- Case management API
-- Investigation system
+1. Copy `server/.env.example` to `server/.env` and add your MongoDB connection string.
+2. In `server`, run `npm run seed` once to load Case 001.
+3. In `server`, run `npm run dev`.
+4. In `client`, run `npm run dev` and open the local address it shows.
 
-### Planned
-- Authentication
-- Evidence system
-- Suspect interviews
-- Timeline reconstruction
-- Interactive evidence board
-- Case scoring
-- Difficulty levels
-- Responsive web interface
-- Mobile application
+### API
+
+- `GET /api/health`
+- `GET /api/cases`
+- `GET /api/cases/case-001`
+- `POST /api/cases/case-001/accusation`
+
+The accusation request body needs `culpritId`, `attackSuspectId`, and `necklaceLocation`.
 
 ## 📁 Project Structure
 
 ```text
 Digital Detective/
-├── client/
-├── server/
+├── client/                 # React + Vite investigation UI
+├── server/                 # Express + MongoDB API
+│   └── src/data/case001.ts # First playable mystery
 ├── README.md
 └── .gitignore
